@@ -66,11 +66,23 @@ const EnumMainTokens = {
             address: UtilsAddresses.toCheckSum("0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3"),
             decimals: 18
         }
+    },
+    [EnumChainId.RAILS]: {
+        WETH: {
+            address: UtilsAddresses.toCheckSum("0x0000000000000000000000000000000000627800"),
+            decimals: 18
+        },//
+        USDC: {
+            address: UtilsAddresses.toCheckSum("0x0000000000000000000000000000000000627801"),
+            decimals: 18
+        }
     }
 }
 
 EnumMainTokens[EnumChainId.BSC].STABLECOINS = [ "BUSD", "USDC", "USDT", "DAI" ].map( e => EnumMainTokens[EnumChainId.BSC][e].address );
 EnumMainTokens[EnumChainId.BSC].MAIN = EnumMainTokens[EnumChainId.BSC]["WBNB"];
+EnumMainTokens[EnumChainId.RAILS].STABLECOINS = ["USDC"].map( e => EnumMainTokens[EnumChainId.RAILS][e].address );
+EnumMainTokens[EnumChainId.RAILS].MAIN = EnumMainTokens[EnumChainId.RAILS]["WETH"];
 
 // [0x10ED43C718714eb63d5aA57B78B54704E256024E, 0x10ED43C718714eb63d5aA57B78B54704E256024E,0x10ED43C718714eb63d5aA57B78B54704E256024E,0x10ED43C718714eb63d5aA57B78B54704E256024E,0x0000000000000000000000000000000000000000]
 // [0xe9e7cea3dedca5984780bafc599bd69add087d56, 0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c, 0x55d398326f99059ff775485246999027b3197955, 0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d]

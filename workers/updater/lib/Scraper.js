@@ -498,11 +498,11 @@ class Scraper {
         let FACTORY = await new this.web3.eth.Contract( EnumAbi[process.env.CHAIN_ID].MAIN_FACTORY, EnumContracts[process.env.CHAIN_ID].MAIN_FACTORY );
         while( true ){
             try {
-                let mainTokenPairAddress = await FACTORY.methods.getPair( EnumMainTokens[process.env.CHAIN_ID].MAIN.address, EnumMainTokens[process.env.CHAIN_ID].USDT.address ).call();
+                let mainTokenPairAddress = await FACTORY.methods.getPair( EnumMainTokens[process.env.CHAIN_ID].MAIN.address, EnumMainTokens[process.env.CHAIN_ID].USDC.address ).call();
                 let mainTokenPair = await new this.web3.eth.Contract( EnumAbi[process.env.CHAIN_ID].PAIR.PANCAKE, mainTokenPairAddress );
                 let reserves = await mainTokenPair.methods.getReserves().call();
                 let WBNB_RESERVE = reserves[1]/10**EnumMainTokens[process.env.CHAIN_ID].MAIN.decimals;
-                let USDT_RESERVE = reserves[0]/10**EnumMainTokens[process.env.CHAIN_ID].USDT.decimals;
+                let USDT_RESERVE = reserves[0]/10**EnumMainTokens[process.env.CHAIN_ID].USDC.decimals;
                 let WBNB_PRICE = USDT_RESERVE/WBNB_RESERVE;
                 this.CHAIN_MAIN_TOKEN_PRICE = WBNB_PRICE;
                 console.log('MAIN_PRICE: ', WBNB_PRICE);
