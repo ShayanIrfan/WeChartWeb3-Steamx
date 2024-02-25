@@ -91,6 +91,7 @@ class BlockListener {
     }
 
     _checkBlockCompletion(blockInfo){
+        console.log(blockInfo, '____________blockInfo')
         // if (blockInfo.isCompleteOnce){  // to be comment out for BSC
         if (true){
             this.ON_BLOCK_RESERVES_UPDATE( blockInfo.number, blockInfo.pairs );
