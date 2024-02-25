@@ -43,7 +43,7 @@ parentPort.on('message', (msg) => {
 });
 
 // intialize db connection
-mongoose.connect(`mongodb+srv://webnersblockchain:aBKzuJPDNlm6o8WE@cluster0.bcuuaop.mongodb.net/charting_${process.env.CHAIN_ID}?retryWrites=true&w=majority`, {
+mongoose.connect(process.env.MONGO_URL, {
     autoIndex: false,
     useNewUrlParser: true,
     useUnifiedTopology: true

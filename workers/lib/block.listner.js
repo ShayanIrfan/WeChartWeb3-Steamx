@@ -73,7 +73,7 @@ class BlockListener {
     }
 
     start(){
-        this._subLogs = web3ws.eth.subscribe('logs', {topics: []}, this._processLog.bind(this));            
+        this._subLogs = web3ws.eth.subscribe('logs', {topics: []}, this._processLog.bind(this));   // this not running for RAILS         
         this._subBlockHeaders = web3ws.eth.subscribe('newBlockHeaders', this._processBlock.bind(this));
     }
 
